@@ -1,0 +1,62 @@
+{
+  "name": "tapping-octopus",
+  "version": "1.0.0",
+  "description": "Tapping Octopus",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "build:osx": "electron-builder --mac",
+    "build:win32": "electron-builder --win --ia32",
+    "build:win64": "electron-builder --win --x64"
+  },
+  "keywords": [
+    "electron"
+  ],
+  "author": "godicheol",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^24.2.0",
+    "electron-builder": "^24.3.0"
+  },
+  "dependencies": {
+    "electron-clipboard-extended": "^1.1.1",
+    "express": "^4.18.2",
+    "fluent-ffmpeg": "^2.1.2",
+    "node-id3": "^0.2.6",
+    "path": "^0.12.7",
+    "sharp": "^0.32.1",
+    "ytdl-core": "^4.11.4"
+  },
+  "build": {
+    "productName": "Tapping Octopus",
+    "appId": "com.godicheol.tappingoctopus",
+    "asar": false,
+    "files": [
+      "!**/libs/ffmpeg/!(${platform})"
+    ],
+    "mac": {
+      "target": [
+        "default"
+      ],
+      "icon": "assets/icons/android-chrome-512x512.png"
+    },
+    "dmg": {
+      "title": "Tapping Octopus",
+      "icon": "assets/icons/android-chrome-512x512.png"
+    },
+    "win": {
+      "target": [
+        "portable",
+        "nsis"
+      ],
+      "icon": "assets/icons/favicon-256x256.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "allowToChangeInstallationDirectory": false,
+      "installerIcon": "assets/icons/favicon-256x256.ico",
+      "createDesktopShortcut": true
+    }
+  }
+}
